@@ -1,0 +1,49 @@
+<div style="position: absolute;top: 5px;bottom: 5px;">
+	<h3>Información del Envío</h3>
+
+	<div class="form-row" id ="codigo_form">
+	    <div class="form-group col-md-2">
+	      <label for="inputCodigo">Codigo</label>
+	      <input type="text" class="form-control" value="CT" id="inputCodigo" placeholder="Codigo" readonly>
+	    </div>
+	    
+	    <div class="form-group col-md-5">
+	      <label for="inputNumero">Numero</label>
+	      <input type="text" class="form-control" value="CT" id="inputNumero" placeholder="Codigo" readonly>
+	    </div>
+	    
+	</div>
+
+	<div class="form-row">
+	    <div class="form-group col-md-10">
+	    	<label for="inputDescripcion">Descripción</label>
+	      	<input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" readonly>
+		</div>
+	</div>
+
+	<hr class="separator">
+
+	<h3>Repartidores Disponibles</h3>
+	<table class="table table-hover">
+		<thead>
+		    <tr>
+		      <th scope="col">Email</th>
+		      <th scope="col">Nombres</th>
+		      <th scope="col">Apellidos</th>
+		      <th scope="col">Tipo</th>
+		      <th scope="col">Seleccionar</th> 
+		    </tr>
+	  	</thead>
+	  	<tbody id="user-table">
+
+	  	</tbody>
+	</table>
+	<hr class="separator">
+
+	<div class="form-row">
+		<div class="form-group col-md-12">
+	      	<button class="btn btn-dark" onclick="sendAsignaciones()">Asignar</button>
+	    </div>
+	</div>
+
+</div>

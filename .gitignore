@@ -1,0 +1,15 @@
+/CourierTracker-app/*.iml
+/CourierTracker-app/.gradle
+/CourierTracker-app/local.properties
+/CourierTracker-app/.idea/libraries
+/CourierTracker-app/.idea/modules.xml
+/CourierTracker-app/.idea/workspace.xml
+/CourierTracker-app/.DS_Store
+/CourierTracker-app/build
+/CourierTracker-app/captures
+/CourierTracker-app/.externalNativeBuild
+/CourierTracker-back/target
+/CourierTracker-back/.settings
+/CourierTracker-back/.project
+/CourierTracker-back/.tern-project
+/CourierTracker-back/.classpath

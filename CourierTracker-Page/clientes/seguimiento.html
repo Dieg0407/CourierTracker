@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+	<link rel="shortcut icon" href="../images/men%c3%ba-pie-de-pagina-favicon.ico?crc=4233374298"/>
+  
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<title>Alkor Courier Intranet</title>
+
+</head>
+
+<body>
+
+	
+	<br>
+	<div class="container">
+		<h2>SEGUIMIENTO DE ENVÍOS</h2>
+		<br>
+		<div class="row" style="background-color: #1776BE">
+			<div class="col-12" style="text-align: center;">
+				<strong><i ><a style="font-size: xx-large;color: white;" id = 'titulo'>CODIGO DEL CLIENTE</a></i></strong>
+			</div>
+		</div>
+
+		<div class="row" style="background-color: #5CACE9">
+			<div class="col-3" style="text-align: center;border-width: 1px">
+				
+			</div>
+			<div class="col-3" style="text-align: center;border-width: 1px">
+				
+			</div>
+			<div class="col-3" style="text-align: center;border-width: 1px">
+				
+			</div>
+			<div class="col-3" style="text-align: center;border-width: 1px">
+				
+			</div>
+		</div>
+
+		<div class="row" >
+			<div class="col-12" style="align-items: center;">
+				<img id = 'imagen' 
+					src="../images/entregado.jpg" class="img-fluid" alt="Responsive image" style="width: 100%">
+			</div>
+		</div>
+
+		<div class="row" style="background-color: #5CACE9">
+			<div class="col-12">
+				<strong><i ><a style="font-size: x-large;color: white;">REGISTRO CÓDIGO</a></i></strong>
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3" >
+				DESCRIPCIÓN
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'descripcion'>
+				AQUI VA LA DESCRIPCION
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				DIRECCIÓN DE ENVÍO
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'direccion'>
+				AQUI VA LA DIRECCIÓN
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				ORIGEN Y DESTINO
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'origen-destino'>
+				AQUI VA EL ORIGEN Y DESTINO
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row" style="background-color: #5CACE9">
+			<div class="col-12">
+				<strong><i ><a style="font-size: x-large;color: white;">EMISOR</a></i></strong>
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				NOMBRES Y APELLIDOS
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'nombres-emisor'>
+				AQUI VAN LOS NOMBRES DEL EMISOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				DNI
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'dni-emisor'>
+				AQUI VA EL DNI DEL EMISOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				CELULAR
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'celular-emisor'>
+				AQUI VA EL CELULAR DEL EMISOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				CORREO
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'correo-emisor'>
+				AQUI VA EL CORREO DEL EMISOR
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row" style="background-color: #5CACE9">
+			<div class="col-12">
+				<strong><i ><a style="font-size: x-large;color: white;">RECEPTOR</a></i></strong>
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				NOMBRES Y APELLIDOS
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'nombres-receptor'>
+				AQUI VAN LOS NOMBRES DEL RECEPTOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				DNI
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'dni-receptor'>
+				AQUI VA EL DNI DEL RECEPTOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				CELULAR
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'celular-receptor'>
+				AQUI VA EL CELULAR DEL RECEPTOR
+			</div>
+		</div>
+
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				CORREO
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'correo-receptor'>
+				AQUI VA EL CORREO DEL RECEPTOR
+			</div>
+		</div>
+
+	</div>
+	
+	<script type="text/javascript">
+		window.addEventListener('load',function(){
+			var datos = JSON.parse(localStorage.getItem('productoTemporal'));
+			if(datos !== null){
+				
+				//datos.estado.id = 3;
+				document.getElementById('titulo').innerHTML = datos.codigo + '-' + datos.numero;
+				switch(datos.estado.id){
+					case 1:
+						document.getElementById('imagen').src = '../images/registrado.jpg';
+						break;
+					case 2:
+						document.getElementById('imagen').src = '../images/enviaje.jpg';
+						break;
+					case 3:
+						document.getElementById('imagen').src = '../images/entregado.jpg';
+						break;
+				}
+
+				document.getElementById('descripcion').innerHTML = datos.descripcion;
+				document.getElementById('direccion').innerHTML = datos.direccion;
+				document.getElementById('origen-destino').innerHTML = datos.origen + '-' + datos.destino;
+				
+				document.getElementById('nombres-emisor').innerHTML = datos.envio.nombres + ' ' + datos.envio.apellidos;
+				document.getElementById('dni-emisor').innerHTML = datos.envio.dni;
+				document.getElementById('celular-emisor').innerHTML = datos.envio.celular;
+				document.getElementById('correo-emisor').innerHTML = datos.envio.correo;
+					
+				
+				document.getElementById('nombres-receptor').innerHTML = datos.recepcion.nombres + ' ' + datos.recepcion.apellidos;
+				document.getElementById('dni-receptor').innerHTML = datos.recepcion.dni;
+				document.getElementById('celular-receptor').innerHTML = datos.recepcion.celular;
+				document.getElementById('correo-receptor').innerHTML = datos.recepcion.correo;
+				
+				localStorage.setItem('productoTemporal',null);
+			}
+			else{
+				window.location.replace(window.location.href.replace('seguimiento.html',
+							'formulario_seguimiento.html'));
+			}
+		});
+	</script>
+</body>

@@ -1,0 +1,404 @@
+<manifest alg="2" build="2018.1.0.386" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="alkorcourier.com" resolutions="1x" timestamp="1535765488962">
+  <folder name="css">
+    <file name="site_global.css" crc="4236371454"/>
+    <file name="master_men_-pie-de-pagina.css" crc="4079469860" ref="urgente:tarifario:en-viaje:e-comerce:entregado:novedades:contacto:seguimiento:servicios:nosotros:index:regular:especial:registrado"/>
+    <file name="nomq_preview_master_men_-pie-de-pagina.css" crc="4247317217" ref="urgente:tarifario:en-viaje:e-comerce:entregado:novedades:contacto:seguimiento:servicios:nosotros:index:regular:especial:registrado"/>
+    <file name="urgente.css" crc="3869963840" ref="urgente"/>
+    <file name="nomq_urgente.css" crc="4149598282" ref="urgente"/>
+    <file name="tarifario.css" crc="148707786" ref="tarifario"/>
+    <file name="nomq_tarifario.css" crc="4157359866" ref="tarifario"/>
+    <file name="en-viaje.css" crc="3972642580" ref="en-viaje"/>
+    <file name="nomq_en-viaje.css" crc="4268713302" ref="en-viaje"/>
+    <file name="e-comerce.css" crc="3976477203" ref="e-comerce"/>
+    <file name="nomq_e-comerce.css" crc="530522199" ref="e-comerce"/>
+    <file name="entregado.css" crc="4100326469" ref="entregado"/>
+    <file name="nomq_entregado.css" crc="84312310" ref="entregado"/>
+    <file name="novedades.css" crc="4187228789" ref="novedades"/>
+    <file name="nomq_novedades.css" crc="536152731" ref="novedades"/>
+    <file name="contacto.css" crc="452920175" ref="contacto"/>
+    <file name="nomq_contacto.css" crc="4237332298" ref="contacto"/>
+    <file name="seguimiento.css" crc="3986209708" ref="seguimiento"/>
+    <file name="nomq_seguimiento.css" crc="53196645" ref="seguimiento"/>
+    <file name="servicios.css" crc="174155523" ref="servicios"/>
+    <file name="nomq_servicios.css" crc="124265041" ref="servicios"/>
+    <file name="nosotros.css" crc="161125115" ref="nosotros"/>
+    <file name="nomq_nosotros.css" crc="4025788126" ref="nosotros"/>
+    <file name="index.css" crc="357420932" ref="index"/>
+    <file name="nomq_index.css" crc="3870907033" ref="index"/>
+    <file name="regular.css" crc="4280462908" ref="regular"/>
+    <file name="nomq_regular.css" crc="4026325353" ref="regular"/>
+    <file name="especial.css" crc="380869345" ref="especial"/>
+    <file name="nomq_especial.css" crc="28313824" ref="especial"/>
+    <file name="registrado.css" crc="4207202281" ref="registrado"/>
+    <file name="nomq_registrado.css" crc="6745555" ref="registrado"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="museutils.js" crc="340535759" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="whatinput.js" crc="86476730" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="museconfig.js" crc="310584261" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="jquery.watch.js" crc="51536988" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="webpro.js" crc="4059564322" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="musewpslideshow.js" crc="3862962738" ref="index"/>
+    <file name="jquery.museoverlay.js" crc="4147669564" ref="index"/>
+    <file name="touchswipe.js" crc="4075097462" ref="index"/>
+    <file name="jquery.musemenu.js" crc="510910590" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="musewpdisclosure.js" crc="3883500470" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="4260645839" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="html5shiv.js" crc="4241844378" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="jquery.museresponsive.js" crc="527716135" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="require.js" crc="7928878" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="form_check.php" crc="4020933626" ref="contacto"/>
+    <file name="form_throttle.php" crc="4259590256" ref="contacto"/>
+    <file name="form_process.php" crc="37464564" ref="contacto"/>
+    <file name="form-u13360.php" crc="3865331893" ref="contacto"/>
+  </folder>
+  <folder name="images">
+    <file name="inicio-favicon.ico" crc="4233374298" ref="index"/>
+    <file name="alkor_portada-03.jpg" crc="253934498" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="blank.gif" crc="4208392903" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje"/>
+    <file name="alkor_portada-04.jpg" crc="267331589" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="alkor_portada-02.jpg" crc="3984782349" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="alkor_portada-01.jpg" crc="407898919" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="flecha-izquierda.png" crc="3975364059" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="flecha-derecha.png" crc="152649081" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="loading.gif" crc="3815509949" ref="index"/>
+    <file name="icon-menu.svg" crc="39803141" ref="index:nosotros:contacto"/>
+    <file name="icon-menu_poster_u2065.png" crc="507061211" ref="index:nosotros:contacto"/>
+    <file name="icon-cerrar.svg" crc="3979695559" ref="index:nosotros:contacto"/>
+    <file name="icon-cerrar_poster_u2084.png" crc="3983865923" ref="index:nosotros:contacto"/>
+    <file name="seguimiento-05.svg" crc="349478687" ref="index:nosotros:contacto"/>
+    <file name="seguimiento-05_poster_u60285.png" crc="460903512" ref="index:nosotros:contacto"/>
+    <file name="268818-p5609w-768-u426-fr.jpg" crc="4084130250" ref="index:servicios"/>
+    <file name="ob82et0-u453-fr.jpg" crc="140815099" ref="index"/>
+    <file name="novedades-02-u471-fr.jpg" crc="4002900353" ref="index:servicios"/>
+    <file name="entrepage-05.jpg" crc="145420890" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="23_mesa de trabajo 1 copia 7.jpg" crc="217182179" ref="index:nosotros:servicios:tarifario:e-comerce:novedades:regular:urgente:especial">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="icon-fb.svg" crc="425697486" seo="true" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje">
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+    </file>
+    <file name="icon-fb_poster_.png" crc="310806188" ref="index"/>
+    <file name="icon-ig.svg" crc="515773745" seo="true" ref="index:nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial:seguimiento:registrado:entregado:en-viaje">
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="entregado" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="seguimiento" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="contacto" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="nosotros" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="tarifario" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="e-comerce" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="registrado" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="servicios" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="regular" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="en-viaje" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="urgente" alt=""/>
+    </file>
+    <file name="icon-ig_poster_.png" crc="3976674464" ref="index"/>
+    <file name="268818-p5609w-768-u426-fr2.jpg" crc="24788744" ref="index:servicios"/>
+    <file name="ob82et0-u453-fr2.jpg" crc="3995847957" ref="index:servicios"/>
+    <file name="entrepage-05-u516-fr.jpg" crc="3985787751" ref="index"/>
+    <file name="268818-p5609w-768-u426-fr3.jpg" crc="370156253" ref="index:servicios"/>
+    <file name="ob82et0-u453-fr3.jpg" crc="4220236893" ref="index:servicios"/>
+    <file name="novedades-02-u471-fr2.jpg" crc="4015157853" ref="index:servicios"/>
+    <file name="268818-p5609w-768-u426-fr4.jpg" crc="4106915344" ref="index:servicios:regular:urgente:especial"/>
+    <file name="ob82et0-u453-fr4.jpg" crc="4250594527" ref="index:servicios:e-comerce"/>
+    <file name="novedades-02-u471-fr3.jpg" crc="4229273324" ref="index:servicios:novedades"/>
+    <file name="entrepage-05-u516-fr2.jpg" crc="386144123" ref="index"/>
+    <file name="23_mesa de trabajo 1 copia 7-u31861-fr.jpg" crc="44240574" ref="index:nosotros:servicios:tarifario:e-comerce:novedades:regular:urgente:especial"/>
+    <file name="nosotros-favicon.ico" crc="4233374298" ref="nosotros"/>
+    <file name="maxresdefault (1).jpg" crc="238145265" ref="nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial">
+      <caption webpage="nosotros" alt=""/>
+    </file>
+    <file name="maxresdefault (1)-u28542-fr.jpg" crc="4213601962" ref="nosotros:tarifario:e-comerce:novedades:regular:urgente:especial"/>
+    <file name="maxresdefault (1)-u28542-fr2.jpg" crc="4187841882" ref="nosotros:tarifario:e-comerce:novedades:regular:urgente:especial"/>
+    <file name="maxresdefault (1)-u28542-fr3.jpg" crc="3983268700" ref="nosotros:servicios:contacto:tarifario:e-comerce:novedades:regular:urgente:especial"/>
+    <file name="servicios-favicon.ico" crc="4233374298" ref="servicios"/>
+    <file name="ob82et0-u10490-fr.jpg" crc="249280483" ref="servicios"/>
+    <file name="268818-p5609w-768-u37645-fr.jpg" crc="4023951318" ref="servicios"/>
+    <file name="23_mesa de trabajo 1 copia 7-u32118-fr.jpg" crc="354119538" ref="servicios"/>
+    <file name="contacto-favicon.ico" crc="4233374298" ref="contacto"/>
+    <file name="tarifario-favicon.ico" crc="4233374298" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 8.jpg" crc="188080168" ref="tarifario">
+      <caption webpage="tarifario" alt=""/>
+    </file>
+    <file name="23_mesa de trabajo 1 copia 6.jpg" crc="4132395364" ref="tarifario">
+      <caption webpage="tarifario" alt=""/>
+    </file>
+    <file name="23_mesa de trabajo 1 copia 7-u19543-fr.jpg" crc="4104304204" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 8-u46031-fr.jpg" crc="17357881" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 6-u46125-fr.jpg" crc="3927405347" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 7-u19543-fr2.jpg" crc="456203412" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 8-u46031-fr2.jpg" crc="3978817388" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 6-u46125-fr2.jpg" crc="4108884560" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 7-u19543-fr3.jpg" crc="3941239099" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 8-u46031-fr3.jpg" crc="385461467" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 6-u46125-fr3.jpg" crc="280883656" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 7-u19543-fr4.jpg" crc="4236553417" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 8-u46031-fr4.jpg" crc="261530231" ref="tarifario"/>
+    <file name="23_mesa de trabajo 1 copia 6-u46125-fr4.jpg" crc="4058684455" ref="tarifario"/>
+    <file name="e-comerce-favicon.ico" crc="4233374298" ref="e-comerce"/>
+    <file name="ob82et0.jpg" crc="3760774303" ref="e-comerce">
+      <caption webpage="e-comerce" alt=""/>
+    </file>
+    <file name="ob82et0-u33392-fr.jpg" crc="4030016910" ref="e-comerce"/>
+    <file name="ob82et0-u33392-fr2.jpg" crc="3890730159" ref="e-comerce"/>
+    <file name="ob82et0-u33392-fr3.jpg" crc="3835693702" ref="e-comerce"/>
+    <file name="novedades-favicon.ico" crc="4233374298" ref="novedades"/>
+    <file name="novedades-02.jpg" crc="3803098519" ref="novedades">
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+      <caption webpage="novedades" alt=""/>
+    </file>
+    <file name="novedades-02-u41976-fr.jpg" crc="71938196" ref="novedades"/>
+    <file name="novedades-02-u41976-fr2.jpg" crc="4215644718" ref="novedades"/>
+    <file name="novedades-02-u41976-fr3.jpg" crc="3894529637" ref="novedades"/>
+    <file name="regular-favicon.ico" crc="4233374298" ref="regular"/>
+    <file name="268818-p5609w-768.jpg" crc="3802119022" ref="regular:urgente:especial">
+      <caption webpage="urgente" alt=""/>
+      <caption webpage="especial" alt=""/>
+      <caption webpage="regular" alt=""/>
+    </file>
+    <file name="268818-p5609w-768-u42423-fr.jpg" crc="280693847" ref="regular:urgente:especial"/>
+    <file name="268818-p5609w-768-u42423-fr2.jpg" crc="334372315" ref="regular:urgente:especial"/>
+    <file name="268818-p5609w-768-u42423-fr3.jpg" crc="330386541" ref="regular:urgente:especial"/>
+    <file name="urgente-favicon.ico" crc="4233374298" ref="urgente"/>
+    <file name="especial-favicon.ico" crc="4233374298" ref="especial"/>
+    <file name="menú-pie-de-pagina-favicon.ico" crc="4233374298" ref="seguimiento"/>
+    <file name="seguimiento-01.jpg" crc="497931930" ref="seguimiento">
+      <caption webpage="seguimiento" alt=""/>
+    </file>
+    <file name="seguimiento-01-u59245-fr.jpg" crc="289715579" ref="seguimiento"/>
+    <file name="seguimiento-01-u59245-fr2.jpg" crc="271596002" ref="seguimiento"/>
+    <file name="seguimiento-01-u59245-fr3.jpg" crc="433135092" ref="seguimiento"/>
+    <file name="seguimiento-01-u59245-fr4.jpg" crc="4056855728" ref="seguimiento"/>
+    <file name="seguimiento-02.jpg" crc="4210495930" ref="registrado">
+      <caption webpage="registrado" alt=""/>
+    </file>
+    <file name="seguimiento-02-u59943-fr.jpg" crc="69675836" ref="registrado"/>
+    <file name="seguimiento-02-u59943-fr2.jpg" crc="3876229954" ref="registrado"/>
+    <file name="seguimiento-02-u59943-fr3.jpg" crc="4142205258" ref="registrado"/>
+    <file name="seguimiento-02-u59943-fr4.jpg" crc="21418887" ref="registrado"/>
+    <file name="seguimiento-04.jpg" crc="3990054414" ref="entregado">
+      <caption webpage="entregado" alt=""/>
+    </file>
+    <file name="seguimiento-04-u59965-fr.jpg" crc="4101167851" ref="entregado"/>
+    <file name="seguimiento-04-u59965-fr2.jpg" crc="3943594312" ref="entregado"/>
+    <file name="seguimiento-04-u59965-fr3.jpg" crc="4015381308" ref="entregado"/>
+    <file name="seguimiento-04-u59965-fr4.jpg" crc="231627256" ref="entregado"/>
+    <file name="seguimiento-03.jpg" crc="37380478" ref="en-viaje">
+      <caption webpage="en-viaje" alt=""/>
+    </file>
+    <file name="seguimiento-03-u59954-fr.jpg" crc="4234975248" ref="en-viaje"/>
+    <file name="seguimiento-03-u59954-fr2.jpg" crc="4004720998" ref="en-viaje"/>
+    <file name="seguimiento-03-u59954-fr3.jpg" crc="4155800260" ref="en-viaje"/>
+    <file name="seguimiento-03-u59954-fr4.jpg" crc="4037286652" ref="en-viaje"/>
+  </folder>
+  <file name="index.html" crc="332445562" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="nosotros.html" crc="3974860259" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="servicios.html" crc="4186895527" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="contacto.html" crc="138087608" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="tarifario.html" crc="4149314084" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="e-comerce.html" crc="344739708" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="novedades.html" crc="138813249" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="regular.html" crc="89064862" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="urgente.html" crc="3949251907" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="especial.html" crc="3864785802" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="seguimiento.html" crc="4274350839" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="registrado.html" crc="35449775" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="entregado.html" crc="223526071" seo="true" mt="1535765154486" redirect="true"/>
+  <file name="en-viaje.html" crc="107843157" seo="true" mt="1535765154486" redirect="true"/>
+</manifest>

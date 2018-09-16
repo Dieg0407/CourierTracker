@@ -1,0 +1,207 @@
+<form id="product-form">
+
+  <div class="form-row" id ="codigo_form">
+    <div class="form-group col-md-2">
+      <label for="inputCodigo">Codigo</label>
+      <input type="text" class="form-control" value="CT" id="inputCodigo" placeholder="Codigo">
+    </div>
+    
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-10">
+      <label for="inputDescripcion">Descripcion</label>
+      <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputDireccion">Dirección</label>
+      <input type="text" class="form-control" value="" id="inputDireccion" placeholder="Dirección">
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <div class="form-group">
+    <div class="form-group col-md-5">
+      <label for="inputOrigen">Origen</label>
+      <select class="custom-select" id="inputOrigen">
+        <option selected>Departamento...</option>
+        <option value="AMAZONAS">Amazonas</option>
+        <option value="ANCASH">Ancash</option>
+        <option value="APURIMAC">Apurimac</option>
+        <option value="AREQUIPA">Arequipa</option>
+        <option value="AYACUCHO">Ayacucho</option>
+        <option value="CAJAMARCA">Cajamarca</option>
+        <option value="CALLAO">Callao</option>
+        <option value="CUSCO">Cusco</option>
+        <option value="HUANCAVELICA">Huancavelica</option>
+        <option value="HUANCAVELICA">Huánuco</option>
+        <option value="ICA">Ica</option>
+        <option value="JUNÍN">Junín</option>
+        <option value="LA LIBERTAD">La Libertad</option>
+        <option value="LAMBAYEQUE">Lambayeque</option>
+        <option value="LIMA">Lima</option>
+        <option value="LORETO">Loreto</option>
+        <option value="MADRE DE DIOS">Madre de Dios</option>
+        <option value="MOQUEGUA">Moquegua</option>
+        <option value="PASCO">Pasco</option>
+        <option value="PIURA">Piura</option>
+        <option value="PUNO">Puno</option>
+        <option value="SAN MARTÍN">San Martín</option>
+        <option value="TACNA">Tacna</option>
+        <option value="TUMBES">Tumbes</option>
+        <option value="UCAYALI">Ucayali</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-5">
+      <label for="inputDestino">Destino</label>
+      <select class="custom-select" id="inputDestino">
+        <option selected>Departamento...</option>
+        <option value="AMAZONAS">Amazonas</option>
+        <option value="ANCASH">Ancash</option>
+        <option value="APURIMAC">Apurimac</option>
+        <option value="AREQUIPA">Arequipa</option>
+        <option value="AYACUCHO">Ayacucho</option>
+        <option value="CAJAMARCA">Cajamarca</option>
+        <option value="CALLAO">Callao</option>
+        <option value="CUSCO">Cusco</option>
+        <option value="HUANCAVELICA">Huancavelica</option>
+        <option value="HUANCAVELICA">Huánuco</option>
+        <option value="ICA">Ica</option>
+        <option value="JUNÍN">Junín</option>
+        <option value="LA LIBERTAD">La Libertad</option>
+        <option value="LAMBAYEQUE">Lambayeque</option>
+        <option value="LIMA">Lima</option>
+        <option value="LORETO">Loreto</option>
+        <option value="MADRE DE DIOS">Madre de Dios</option>
+        <option value="MOQUEGUA">Moquegua</option>
+        <option value="PASCO">Pasco</option>
+        <option value="PIURA">Piura</option>
+        <option value="PUNO">Puno</option>
+        <option value="SAN MARTÍN">San Martín</option>
+        <option value="TACNA">Tacna</option>
+        <option value="TUMBES">Tumbes</option>
+        <option value="UCAYALI">Ucayali</option>
+      </select>
+    </div>
+
+  </div>
+
+  <hr class="separator">
+  <!-- Info del Emisor--> 
+  <div class="form-group">
+    <div class="form-group col-md-4">
+      <label >Información del Emisor</label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputDNIEmisor" >DNI del Emisor</label>
+      <input type="text" class="form-control" id="inputDNIEmisor" placeholder="DNI">
+    </div>
+    <div class="form-group col-md-4 align-self-end">
+      <button type="button" class="btn btn-primary" onclick="getCliente(1)">cargar</button> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputNamesEmisor" class="col-sm-2 col-form-label">Nombres</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputNamesEmisor" placeholder="Nombres">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for="inputApellidosEmisor" class="col-sm-2 col-form-label">Apellidos</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputApellidosEmisor" placeholder="Apellidos">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCorreoEmisor" class="col-sm-2 col-form-label">Correo</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputCorreoEmisor" placeholder="Correo">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCelularEmisor" class="col-sm-2 col-form-label">Celular</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputCelularEmisor" placeholder="Celular">
+    </div>
+  </div>
+
+  <!-- INFO del Receptor --> 
+  <hr class="separator">
+  <div class="form-group">
+    <div class="form-group col-md-4">
+      <label >Información del Receptor</label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputDNIReceptor" >DNI del Receptor</label>
+      <input type="text" class="form-control" id="inputDNIReceptor" placeholder="DNI">
+    </div>
+    <div class="form-group col-md-4 align-self-end">
+      <button type="button" class="btn btn-primary" onclick="getCliente(2)">cargar</button> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputNamesReceptor" class="col-sm-2 col-form-label">Nombres</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputNamesReceptor" placeholder="Nombres">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for="inputApellidosReceptor" class="col-sm-2 col-form-label">Apellidos</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputApellidosReceptor" placeholder="Apellidos">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCorreoReceptor" class="col-sm-2 col-form-label">Correo</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputCorreoReceptor" placeholder="Correo">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCelularReceptor" class="col-sm-2 col-form-label">Celular</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputCelularReceptor" placeholder="Celular">
+    </div>
+  </div>
+
+
+  <hr class="separator">
+
+  <div class="form-group">
+    <div class="form-group col-md-5">
+      <label for="inputEstado">Estado</label>
+      <select class="custom-select" id="inputEstado">
+        <option selected>Estado...</option>
+        <option value="-1">Anulado</option>
+        <option value="0">No se Entrego</option>
+        <option value="1">Registrado</option>
+        <option value="2">En Ruta</option>
+        <option value="3">Entrega Exitosa</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <input type="submit" name="btnSubmit" value="Registrar" class="btn btn-dark">
+  </div>
+
+</form>

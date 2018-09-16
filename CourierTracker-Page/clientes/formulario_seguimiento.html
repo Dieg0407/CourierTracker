@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="../images/men%c3%ba-pie-de-pagina-favicon.ico?crc=4233374298"/>
+  
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<title>Alkor Courier Intranet</title>
+
+	<style type="text/css">
+		html,body {
+		  height:100%;
+		  width:100%;
+		  margin:0;
+		}
+		body {
+		  background-image: url("../images/SEGUIMIENTOfondo-01.jpg");
+		background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+		  display:flex;
+		}
+		form {
+		  margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+		}
+	</style>
+	
+</head>
+<body>
+
+	<form id = "form-producto" >
+		<div class="form-row">
+			<div class="form-group col-md-12" align = "center">
+		    	<label for="inputCodigo"  style=";font-size: xx-large;"><strong>SEGUIMIENTO</strong></label>
+		    </div>
+		</div>
+		<div class="form-row" id ="codigo_form">
+			
+			<br>
+			<br>
+			
+		    <div class="form-group col-md-12" align = "center">
+		      <label for="inputCodigo"  style=";font-size: x-large;"><strong>Ingresa tu Codigo</strong></label>
+		      <input type="text" class="form-control" value="" id="inputCodigo" placeholder="CODIGO-NUMERO">
+		    </div>
+		    <div class="form-group col-md-12" align = "center">
+		    	<input type="submit" name="btnSubmit" value="Enviar" class="btn btn-primary">
+		    </div>
+		</div>
+	</form>
+	
+	<script type="text/javascript">
+		
+		var base_url = 'https://ct-back.herokuapp.com/';
+		
+		var formulario = document.getElementById('form-producto');
+
+		formulario.addEventListener('submit',function(e){
+			e.preventDefault();
+
+			var codigo = document.getElementById('inputCodigo').value.toUpperCase();
+
+			if(codigo.match('\\S+-\\d+')){
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST',base_url+'TrackerAPI/getProductoCliente');
+				xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+				xhr.setRequestHeader('Accept', '*/*');
+				xhr.onload = function(){
+					if(xhr.status === 200){
+						console.log(xhr.responseText);
+						var producto = JSON.parse(xhr.responseText);
+						localStorage.setItem('productoTemporal',xhr.responseText);
+						if(producto.estado.id > 0)
+							window.location.replace(window.location.href.replace('formulario_seguimiento.html',
+								'seguimiento.html'));
+						else
+							alert('El envío esta registrado como "no entregado"');
+					}
+					else if(xhr.status === 404)
+						alert('No se encontro el envío con código: '+codigo);
+					else if(xhr.getResponseHeader("Content-Type") === 'application/json')
+						alert(JSON.parse(xhr.responseText).message);
+					else
+						alert('Error en el Servidor');
+				};
+				xhr.send(JSON.stringify({codigo_numero : codigo}));
+			}
+			else{
+				alert('El formato del código es inválido');
+			}
+
+			
+		});
+
+
+	</script>
+	
+</body>

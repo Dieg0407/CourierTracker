@@ -1,0 +1,15 @@
+{
+	"type-connection" : "program",
+	
+	"server-connection":{
+		"jndi":"java:/tracker"
+	},
+	"program-connection":{
+		"user":"alkorcou_root",
+		"pass":"dieg040506",
+		"ip":"alkorcourier.com",
+		"port":"3306",
+		"db":"alkorcou_courier_tracker",
+		"db-provider":"mysql"
+	}
+}
