@@ -2,20 +2,16 @@ package com.pe.azoth.dao;
 
 
 import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Blob;
-import javax.sql.rowset.serial.SerialBlob;
 import java.sql.ResultSet;
-
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.naming.NamingException;
-
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.ArrayListHandler;
+import javax.sql.rowset.serial.SerialBlob;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -83,34 +79,28 @@ public class DaoImagenImpl implements DaoImagen{
 	@Override
 	public List<Imagen> listImagenes(String codigo, int numero)  throws SQLException, NamingException{
 		try(Connection connection = conexion.getConnection()){
-			return new QueryRunner()
-					.query(connection, 
-							"SELECT identificador, codigo,numero,image FROM imagenes WHERE codigo = ? AND numero = ?",
-							new ArrayListHandler(),
-							codigo,numero)
-					.stream()
-					.map( rs -> resultSetToImagen(rs))
-					.collect(Collectors.toList());
+			try(PreparedStatement pst = connection.prepareStatement("SELECT * FROM imagenes WHERE codigo = ? AND numero = ?")){
+				pst.setString(1,codigo);
+				pst.setInt(2,numero);	
+				try(ResultSet rs = pst.executeQuery()){
+					List<Imagen> lst = new ArrayList<>();
+					while(rs.next()) {
+						Imagen img = new Imagen();
+						img.setId(rs.getInt("identificador"));
+						img.setCodigo(rs.getString("codigo"));
+						img.setNumero(rs.getInt("numero"));
+
+						Blob tmp = rs.getBlob("image");
+						img.setImagen(tmp.getBytes(1,(int)tmp.length()));
+						tmp.free();
+						
+						lst.add(img);
+					}
+					return lst;
+				}
+			}
 		}
 	}
 
-	private Imagen resultSetToImagen(Object[] rs) {
-		try{		
-			Imagen img = new Imagen();
-			img.setId((Integer)rs[0]);
-			img.setCodigo((String)rs[1]);
-			img.setNumero((Integer)rs[2]);
-
-			Blob tmp = (Blob)rs[3];
-			img.setImagen(tmp.getBytes(1,(int)tmp.length()));
-			tmp.free();
-			
-
-			return img;
-		}
-		catch(SQLException e){
-			return new Imagen();
-		}
-	}
 
 }

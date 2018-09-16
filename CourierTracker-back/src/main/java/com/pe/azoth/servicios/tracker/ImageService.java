@@ -2,6 +2,8 @@ package com.pe.azoth.servicios.tracker;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
@@ -18,6 +20,7 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pe.azoth.beans.Imagen;
 import com.pe.azoth.dao.DaoImagen;
@@ -53,11 +56,11 @@ public class ImageService{
 		} 
 		catch (SQLException e) {
 			e.printStackTrace(System.err);
-			throw this.exception(Response.Status.BAD_REQUEST, "Hubo un error en la Base de Datos");
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, "Hubo un error en la Base de Datos");
 		} 
 		catch (NamingException e) {
 			e.printStackTrace(System.err);
-			throw this.exception(Response.Status.BAD_REQUEST, 
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, 
 					"Hubo un error en la configuración del servidor, Informar al proveedor");
 		}
 	}
@@ -92,11 +95,11 @@ public class ImageService{
 		} 
 		catch (SQLException e) {
 			e.printStackTrace(System.err);
-			throw this.exception(Response.Status.BAD_REQUEST, "Hubo un error en la Base de Datos");
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, "Hubo un error en la Base de Datos");
 		} 
 		catch (NamingException e) {
 			e.printStackTrace(System.err);
-			throw this.exception(Response.Status.BAD_REQUEST, 
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, 
 					"Hubo un error en la configuración del servidor, Informar al proveedor");
 		}
 	}
@@ -113,16 +116,68 @@ public class ImageService{
 		imagen.setNumero(numero);
 		imagen.setImagen(img);
 		
-		DaoImagen dao = new DaoImagenImpl();
-		return null;
+		try {
+			DaoImagen dao = new DaoImagenImpl();
+			dao.addImagen(imagen);
+			return Response.ok().build();
+		} 
+		catch (JsonProcessingException e) {
+			e.printStackTrace(System.err);throw this.exception(Response.Status.BAD_REQUEST, 
+					"Hubo un error en la configuración del servidor, Informar al proveedor");
+		} 
+		catch (IOException e) {
+			e.printStackTrace(System.err);throw this.exception(Response.Status.BAD_REQUEST, 
+					"Hubo un error en la configuración del servidor, Informar al proveedor");
+		} 
+		catch (SQLException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, "Hubo un error en la Base de Datos");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, 
+					"Hubo un error en la configuración del servidor, Informar al proveedor");
+		}
 	}
 
 	@GET
 	@Path("/getNumberImages")
-	@Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-	public Response getNumberImages(String jsonRequest){
-		return null;
+	public Response getNumberImages(
+			@QueryParam("codigo") String codigo,
+			@QueryParam("numero") int numero ){
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+
+			DaoImagen dao = new DaoImagenImpl();
+			List<Integer> ids = dao.listImagenes(codigo, numero)
+					.stream()
+					.map(img -> img.getId())
+					.collect(Collectors.toList());
+			
+			ObjectNode response = mapper.createObjectNode();
+			ArrayNode array = mapper.valueToTree(ids);
+			response.putArray("ids").addAll(array);
+			
+			return Response.ok().entity(response).build();
+		}
+		catch (JsonProcessingException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.BAD_REQUEST, "Hubieron problemas procesando la petición al servidor");
+		} 
+		catch (IOException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.BAD_REQUEST, "Hubieron problemas procesando la petición al servidor");
+		} 
+		catch (SQLException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, "Hubo un error en la Base de Datos");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace(System.err);
+			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, 
+					"Hubo un error en la configuración del servidor, Informar al proveedor");
+		}
 	}
 	
 	private WebApplicationException exception(Response.Status status, String mensaje) {

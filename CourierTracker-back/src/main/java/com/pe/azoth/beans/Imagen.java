@@ -1,9 +1,14 @@
 package com.pe.azoth.beans;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Imagen implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4549751150568575854L;
 	private int id;
 	private String codigo;
 	private int numero;
@@ -28,4 +33,12 @@ public class Imagen implements Serializable{
 	public void setImagen(byte[] imagen){
 		this.imagen = imagen;
 	}
+
+	@Override
+	public String toString() {
+		return "Imagen [id=" + id + ", codigo=" + codigo + ", numero=" + numero + ", imagen=" + Arrays.toString(imagen)
+				+ "]";
+	}
+	
+//	
 }

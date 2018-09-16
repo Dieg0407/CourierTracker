@@ -94,7 +94,7 @@ create table alkorcou_courier_tracker.imagenes(
 	identificador int auto_increment,
     codigo varchar(10),
     numero int,
-    image blob not null,
+    image MEDIUMBLOB ,
     
     primary key (identificador)
 )
@@ -102,4 +102,6 @@ CHARSET=utf8
 COLLATE=utf8_bin
 ENGINE=InnoDB;
 
-drop table alkorcou_courier_tracker.productos;
+drop table alkorcou_courier_tracker.imagenes;
+select * from alkorcou_courier_tracker.imagenes;
+insert into alkorcou_courier_tracker.imagenes (codigo,numero) values ('ct',1);
