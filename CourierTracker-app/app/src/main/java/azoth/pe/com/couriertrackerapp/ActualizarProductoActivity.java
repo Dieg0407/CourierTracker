@@ -2,8 +2,11 @@ package azoth.pe.com.couriertrackerapp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,9 +31,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import azoth.pe.com.couriertrackerapp.utils.ProductoParcelable;
 
@@ -49,6 +63,7 @@ public class ActualizarProductoActivity extends AppCompatActivity {
     private Button btnUpdateEntregado;
     private Button btnUpdateNoEntregado;
 
+    private FloatingActionButton btnUploadImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +85,10 @@ public class ActualizarProductoActivity extends AppCompatActivity {
         this.btnUpdateNoEntregado = (Button) findViewById(R.id.btnUpdNoEntregado);
         this.btnUpdateRegistrado = (Button) findViewById(R.id.btnUpdRegistrado);
         this.btnUpdateRuta = (Button) findViewById(R.id.btnUpdRuta);
+        this.btnUploadImage = (FloatingActionButton) findViewById(R.id.btnUploadImage);
+        this.btnUploadImage.setEnabled(false);
+
+        this.btnUploadImage.setOnClickListener(e -> uploadImage());
 
         this.txtViewCodigo.setText(String.format("%s-%d",
                 productoParcelable.getCodigo(),
@@ -78,15 +97,19 @@ public class ActualizarProductoActivity extends AppCompatActivity {
         switch (productoParcelable.getEstado().getId()){
             case 0:
                 this.txtViewEstado.setText("No Entregado");
+                this.btnUploadImage.setEnabled(false);
                 break;
             case 1:
                 this.txtViewEstado.setText("Registrado");
+                this.btnUploadImage.setEnabled(false);
                 break;
             case 2:
                 this.txtViewEstado.setText("En Ruta");
+                this.btnUploadImage.setEnabled(false);
                 break;
             case 3:
                 this.txtViewEstado.setText("Entregado");
+                this.btnUploadImage.setEnabled(true);
                 break;
             default:
                 break;
@@ -115,15 +138,19 @@ public class ActualizarProductoActivity extends AppCompatActivity {
                         switch (productoParcelable.getEstado().getId()){
                             case 0:
                                 this.txtViewEstado.setText("No Entregado");
+                                this.btnUploadImage.setEnabled(false);
                                 break;
                             case 1:
                                 this.txtViewEstado.setText("Registrado");
+                                this.btnUploadImage.setEnabled(false);
                                 break;
                             case 2:
                                 this.txtViewEstado.setText("En Ruta");
+                                this.btnUploadImage.setEnabled(false);
                                 break;
                             case 3:
                                 this.txtViewEstado.setText("Entregado");
+                                this.btnUploadImage.setEnabled(true);
                                 break;
                             default:
                                 break;
@@ -178,8 +205,31 @@ public class ActualizarProductoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
 
+    private void uploadImage(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, 1);
+        }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap bitmap = (Bitmap) extras.get("data");
+
+           Toast.makeText(getApplicationContext(), "Intentando cargar la imagen...", Toast.LENGTH_SHORT).show();
+           ImageUploader img = new ImageUploader(
+                   bitmap,productoParcelable.getCodigo(),productoParcelable.getNumero(),url,
+                   getApplicationContext());
+
+           img.execute();
+            //mImageView.setImageBitmap(imageBitmap);
+        }
+    }
 }
+

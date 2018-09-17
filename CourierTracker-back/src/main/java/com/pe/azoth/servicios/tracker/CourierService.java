@@ -99,31 +99,34 @@ public class CourierService {
 			Usuario usr = jwtManager.parseJWT(jwt);
 			if(usr != null){
 				
-				DaoProducto daoProducto = new DaoProductoImpl();
-				DaoAsignacion daoAsignacion = new DaoAsignacionImpl();
-				DaoCliente daoCliente  = new DaoClienteImpl();
-				DaoEstado daoEstado = new DaoEstadoImpl();
-				
-				List<String> temp = daoAsignacion.listAsignaciones(usr.getCorreo())
-				.stream()
-				.map(as -> as.getCodProducto()+"-"+as.getNroProducto())
-				.collect(Collectors.toList());
-				
+				try(Connection connection = new Conexion().getConnection()){
+					
+					DaoProducto daoProducto = new DaoProductoImpl();
+					DaoAsignacion daoAsignacion = new DaoAsignacionImpl();
+					DaoCliente daoCliente  = new DaoClienteImpl();
+					DaoEstado daoEstado = new DaoEstadoImpl();
+					
+					List<String> temp = daoAsignacion.listAsignaciones(usr.getCorreo(),connection)
+					.stream()
+					.map(as -> as.getCodProducto()+"-"+as.getNroProducto())
+					.collect(Collectors.toList());
+					
 
-				String[] array = new String[temp.size()];
-				array = temp.toArray(array);
-				List<Producto> productos = daoProducto.listProductos(array);
-				
-				for(Producto p : productos) {
-					//CAMBIOS CON EL MODELO
-					//p.setOrigen(daoLocalidad.getLocalidad(p.getOrigen().getId()));
-					//p.setDestino(daoLocalidad.getLocalidad(p.getDestino().getId()));
-					p.setEnvio(daoCliente.getCliente(p.getEnvio().getId()));
-					p.setRecepcion(daoCliente.getCliente(p.getRecepcion().getId()));
-					p.setEstado(daoEstado.getEstado(p.getEstado().getId()));
+					String[] array = new String[temp.size()];
+					array = temp.toArray(array);
+					List<Producto> productos = daoProducto.listProductos(connection,array);
+					
+					for(Producto p : productos) {
+						//CAMBIOS CON EL MODELO
+						//p.setOrigen(daoLocalidad.getLocalidad(p.getOrigen().getId()));
+						//p.setDestino(daoLocalidad.getLocalidad(p.getDestino().getId()));
+						p.setEnvio(daoCliente.getCliente(p.getEnvio().getId(),connection));
+						p.setRecepcion(daoCliente.getCliente(p.getRecepcion().getId(),connection));
+						p.setEstado(daoEstado.getEstado(p.getEstado().getId(),connection));
+					}
+					
+					return productos;
 				}
-				
-				return productos;
 			}
 			else
 				throw new WebApplicationException(

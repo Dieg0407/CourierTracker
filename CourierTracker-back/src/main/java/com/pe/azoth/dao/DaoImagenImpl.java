@@ -39,7 +39,7 @@ public class DaoImagenImpl implements DaoImagen{
 	public void addImagen(Imagen imagen)  throws SQLException, NamingException{
 		try(Connection connection = conexion.getConnection()){
 			try(PreparedStatement pst = connection.prepareStatement(
-				"INSERT INTO imagenes SET codigo = ?, numero = ?, imagen = ?")){
+				"INSERT INTO imagenes SET codigo = ?, numero = ?, image = ?")){
 				pst.setString(1,imagen.getCodigo());
 				pst.setInt(2,imagen.getNumero());
 				pst.setBlob(3,new SerialBlob(imagen.getImagen()));

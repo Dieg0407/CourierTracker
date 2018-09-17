@@ -50,6 +50,10 @@
 			<param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
 			<param-value>com.pe.azoth.servicios.tracker.CORSFilterTracker</param-value>
 		</init-param>
+		<init-param>
+    		<param-name>jersey.config.server.provider.classnames</param-name>
+    		<param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	

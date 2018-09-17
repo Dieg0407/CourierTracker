@@ -1,12 +1,15 @@
 package com.pe.azoth.servicios.tracker;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -16,6 +19,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -106,21 +112,41 @@ public class ImageService{
 
 	@POST
 	@Path("/putImage/{codigo}/{numero}")
-	@Consumes({ "image/jpg", "image/png" })
-	public Response putImage(byte[] img, 
+	@Consumes(MediaType.MULTIPART_FORM_DATA+";boundary=" + "*****")
+	public Response putImage(
 		@PathParam("codigo") String codigo, 
-		@PathParam("numero") int numero ){
+		@PathParam("numero") int numero ,
+		@DefaultValue("true") @FormDataParam("enabled") boolean enabled,
+        @FormDataParam("file") InputStream uploadedInputStream,
+        @FormDataParam("file") FormDataContentDisposition fileDetail) {
 		
-		Imagen imagen = new Imagen();
-		imagen.setCodigo(codigo);
-		imagen.setNumero(numero);
-		imagen.setImagen(img);
+		
+		System.err.println("ENTRO AL SERVICIO");
 		
 		try {
+			ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+			int nRead;
+			byte[] data = new byte[16384];
+
+			while ((nRead = uploadedInputStream.read(data, 0, data.length)) != -1) {
+			  buffer.write(data, 0, nRead);
+			}
+
+			buffer.flush();
+			
+			byte[] total = buffer.toByteArray();
+			buffer.close();
+			
+			Imagen imagen = new Imagen();
+			imagen.setCodigo(codigo);
+			imagen.setNumero(numero);
+			imagen.setImagen(total);
+			
 			DaoImagen dao = new DaoImagenImpl();
 			dao.addImagen(imagen);
 			return Response.ok().build();
-		} 
+		}
 		catch (JsonProcessingException e) {
 			e.printStackTrace(System.err);throw this.exception(Response.Status.BAD_REQUEST, 
 					"Hubo un error en la configuración del servidor, Informar al proveedor");
@@ -138,6 +164,7 @@ public class ImageService{
 			throw this.exception(Response.Status.INTERNAL_SERVER_ERROR, 
 					"Hubo un error en la configuración del servidor, Informar al proveedor");
 		}
+		
 	}
 
 	@GET

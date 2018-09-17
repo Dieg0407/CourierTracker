@@ -36,7 +36,7 @@ public interface DaoProducto {
 	 */
 	List<Producto> listProductos(String...strings ) throws SQLException, NamingException;
 	
-	
+	List<Producto> listProductos(Connection connection,String...strings ) throws SQLException, NamingException;
 
 	/**
 	 * Obtienes un producto por su numero y codigo

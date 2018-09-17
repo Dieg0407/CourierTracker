@@ -104,6 +104,12 @@ public class DaoProductoImpl implements DaoProducto {
 	@Override
 	public List<Producto> listProductos(String... codigos) throws SQLException, NamingException{
 		try(Connection connection = this.conexion.getConnection()){
+			return this.listProductos(connection,codigos);
+		}
+	}
+	@Override
+	public List<Producto> listProductos(Connection connection, String... codigos) throws SQLException, NamingException{
+		
 			if(codigos.length == 0)
 				return Arrays.asList();
 			else {
@@ -138,8 +144,9 @@ public class DaoProductoImpl implements DaoProducto {
 								))
 						.collect(Collectors.toList());
 			}
-		}
+		
 	}
+	
 	/* (non-Javadoc)
 	 * @see com.pe.azoth.dao.DaoProducto#getProducto(java.lang.Integer)
 	 */

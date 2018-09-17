@@ -31,6 +31,13 @@ public class DaoAsignacionImpl implements DaoAsignacion {
 	public List<Asignacion> listAsignaciones() throws SQLException, NamingException{
 		try(Connection connection = this.conexion.getConnection()){
 			
+			return listAsignaciones(connection);
+			
+		}
+	}
+	public List<Asignacion> listAsignaciones(Connection connection) throws SQLException{
+		
+			
 			return new QueryRunner()
 					.query(connection, "SELECT a.correo, a.codigo, a.numero, p.id_estado "
 							+ "FROM asignaciones a "
@@ -45,7 +52,7 @@ public class DaoAsignacionImpl implements DaoAsignacion {
 							))
 					.collect(Collectors.toList());
 			
-		}
+		
 	}
 	
 	/* (non-Javadoc)
@@ -55,6 +62,13 @@ public class DaoAsignacionImpl implements DaoAsignacion {
 	public List<Asignacion> listAsignaciones(String correoUsuario) throws SQLException, NamingException{
 		try(Connection connection = this.conexion.getConnection()){
 			
+			return listAsignaciones(correoUsuario,connection);
+			
+		}
+	}
+	
+	public List<Asignacion> listAsignaciones(String correoUsuario, Connection connection) throws SQLException, NamingException{
+		
 			return new QueryRunner()
 					.query(connection, "SELECT a.correo, a.codigo, a.numero, p.id_estado  "
 							+ "FROM asignaciones a "
@@ -69,9 +83,8 @@ public class DaoAsignacionImpl implements DaoAsignacion {
 							))
 					.collect(Collectors.toList());
 			
-		}
+		
 	}
-	
 	/* (non-Javadoc)
 	 * @see com.pe.azoth.dao.DaoAsignacion#listAsignaciones(java.lang.Integer)
 	 */
