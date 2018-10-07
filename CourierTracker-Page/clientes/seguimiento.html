@@ -203,6 +203,10 @@
 			</div>
 		</div>
 
+		<div class="row border-bottom justify-content-center" style="margin-top: 10px; margin-bottom: 10px;" id = 'img-div'>
+			
+
+		</div>
 	</div>
 	
 	<script type="text/javascript">
@@ -239,12 +243,24 @@
 				document.getElementById('celular-receptor').innerHTML = datos.recepcion.celular;
 				document.getElementById('correo-receptor').innerHTML = datos.recepcion.correo;
 				
+				var jsonImages = JSON.parse(localStorage.getItem('imagenesTemporal'));
+
+				var imgDiv = document.getElementById('img-div');
+				for(var i in jsonImages.ids){
+					console.log(i);
+					imgDiv.innerHTML+='<div class = "col-2" ><img src="https://ct-back.herokuapp.com/TrackerAPI/img/getImage?id='+jsonImages.ids[i]+'" class="rounded mx-auto d-block" alt="..."></div>';
+				}
+
+
 				localStorage.setItem('productoTemporal',null);
+				localStorage.setItem('imagenesTemporal',null);
+					
 			}
 			else{
 				window.location.replace(window.location.href.replace('seguimiento.html',
 							'formulario_seguimiento.html'));
 			}
 		});
+
 	</script>
 </body>
