@@ -383,7 +383,7 @@ function verificarDatosCliente(tipo){
 	var apellidos = document.getElementById('inputApellidos'+sufijo).value;
 
 	if(dni.length === 0){
-		alert('El dni del ' + sufijo + ' debe contener 8 numeros');
+		alert('El dni/ruc del ' + sufijo + ' debe contener 8 o 11 numeros');
 		return false;
 	}
 	else if( !dni.match('^\\d+$')){
