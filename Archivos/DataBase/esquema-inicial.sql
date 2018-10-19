@@ -67,7 +67,8 @@ create table alkorcou_courier_tracker.productos(
     cliente_envio int,
     cliente_recepcion int,
     id_estado int,
-    fec_creacion timestamp DEFAULT CURRENT_TIMESTAMP,
+    fec_creacion long ,
+	fec_entregado long,
     
     primary key (codigo,numero),
     foreign key (cliente_envio) references clientes(id_cliente),

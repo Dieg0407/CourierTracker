@@ -147,6 +147,19 @@
 			</div>
 		</div>
 
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				FECHA DE REGISTRO
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'fecha-registro'>
+				FECHA DE REGISTRO NO ENCONTRADA
+			</div>
+		</div>
+
+
 		<br>
 
 		<div class="row" style="background-color: #5CACE9">
@@ -203,6 +216,19 @@
 			</div>
 		</div>
 
+		<div class="row border-bottom" style="margin-top: 10px; margin-bottom: 10px;">
+			<div class="col-3">
+				FECHA DE ENTREGA
+			</div>
+			<div class="col-1">
+				:
+			</div>
+			<div class = "col-8" id = 'fecha-entrega'>
+				AÚN NO SE HA ENTREGADO
+			</div>
+		</div>
+
+
 		<div class="row border-bottom justify-content-center" style="margin-top: 10px; margin-bottom: 10px;" id = 'img-div'>
 			
 
@@ -210,11 +236,35 @@
 	</div>
 	
 	<script type="text/javascript">
+		function timeConverter(UNIX_timestamp){
+		  var a = new Date(UNIX_timestamp);
+
+
+		  var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+		  var year = a.getFullYear();
+		  var month = months[a.getMonth()];
+		  var date = a.getDate();
+		  var hour = a.getHours();
+		  var min = a.getMinutes();
+		  var sec = a.getSeconds();
+		  var time = date + ' de ' + month + ' del ' + year + ' a las ' + hour + ':' + min + ':' + sec ;
+		  return time;
+		}
+
 		window.addEventListener('load',function(){
 			var datos = JSON.parse(localStorage.getItem('productoTemporal'));
+			//var currentTime = new Date().getTime();
+
 			if(datos !== null){
 				
 				//datos.estado.id = 3;
+				console.log(datos);
+				console.log(datos.fecha_creacion);
+				console.log(timeConverter(datos.fecha_creacion*1000));
+				//console.log(timeConverter(currentTime));
+				//console.log(new Date().getTime());
+				//console.log(timeConverter(1539923940*1000));
+
 				document.getElementById('titulo').innerHTML = datos.codigo + '-' + datos.numero;
 				switch(datos.estado.id){
 					case 1:
@@ -243,12 +293,16 @@
 				document.getElementById('celular-receptor').innerHTML = datos.recepcion.celular;
 				document.getElementById('correo-receptor').innerHTML = datos.recepcion.correo;
 				
+				document.getElementById('fecha-registro').innerHTML = timeConverter(datos.fecha_creacion*1000);
+				if(datos.fechaEntregado !== null)
+					document.getElementById('fecha-entrega').innerHTML = timeConverter(datos.fechaEntregado*1000);
+				
 				var jsonImages = JSON.parse(localStorage.getItem('imagenesTemporal'));
 
 				var imgDiv = document.getElementById('img-div');
 				for(var i in jsonImages.ids){
-					console.log(i);
-					imgDiv.innerHTML+='<div class = "col-2" ><img src="https://ct-back.herokuapp.com/TrackerAPI/img/getImage?id='+jsonImages.ids[i]+'" class="rounded mx-auto d-block" alt="..."></div>';
+					//console.log(i);
+					imgDiv.innerHTML+='<div class = "col-2 mx-3" ><img src="https://ct-back.herokuapp.com/TrackerAPI/img/getImage?id='+jsonImages.ids[i]+'" class="img-thumbnail" alt="..."></div>';
 				}
 
 

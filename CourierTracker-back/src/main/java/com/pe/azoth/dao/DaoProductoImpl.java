@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,8 +23,21 @@ import com.pe.azoth.beans.Estado;
 import com.pe.azoth.beans.Producto;
 
 public class DaoProductoImpl implements DaoProducto {
-	
-	
+	/*
+	public static void main(String[] args) {
+		SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        
+        System.out.println(sdf.format(Instant.now(Clock.system(ZoneId.of("UTC"))).toEpochMilli()));
+        //System.out.println(Instant.now(Clock.systemUTC()).toEpochMilli());
+        
+        System.out.println(new Date().getTime());
+        System.out.println(Instant.now().getEpochSecond());
+        System.out.println(Instant.now().toEpochMilli());
+        
+        System.out.println(new Timestamp(Instant.now().toEpochMilli()));
+	}
+	*/
 	private Conexion conexion;
 	
 	public DaoProductoImpl() throws JsonParseException, JsonMappingException, IOException {	
@@ -40,7 +54,7 @@ public class DaoProductoImpl implements DaoProducto {
 			return new QueryRunner()
 					.query(connection,
 							"SELECT codigo,numero,descripcion,direccion,origen,destino,"
-							+ "cliente_envio,cliente_recepcion,id_estado, fec_creacion "
+							+ "cliente_envio,cliente_recepcion,id_estado, fec_creacion, fec_entrega  "
 							+ "FROM productos "
 							+ "WHERE id_estado != -1 "
 							+ "ORDER BY id_estado,codigo,fec_creacion ", 
@@ -56,7 +70,8 @@ public class DaoProductoImpl implements DaoProducto {
 							new Cliente ((Integer)rs[6]),//CLIENTE ENVIO
 							new Cliente ((Integer)rs[7]),//CLIENTE RECEPCION
 							new Estado ((Integer)rs[8]),//Estado,
-							(Timestamp)rs[9] //FECHA CREACION
+							((Long)rs[9]).longValue() == 0 ? null : new Timestamp((Long)rs[9]), //FECHA CREACION
+							((Long)rs[10]).longValue() == 0 ? null : new Timestamp((Long)rs[10])//FECHA ENTREGADO 
 							))
 					.collect(Collectors.toList());
 		}
@@ -72,7 +87,7 @@ public class DaoProductoImpl implements DaoProducto {
 			return new QueryRunner()
 					.query(connection, 
 							"SELECT codigo,numero,descripcion,direccion,origen,"
-							+ "destino,cliente_envio,cliente_recepcion,id_estado,fec_creacion "
+							+ "destino,cliente_envio,cliente_recepcion,id_estado,fec_creacion,fec_entrega "
 							+ "FROM productos "
 							+ "WHERE codigo = ? AND id_estado != -1 "
 							+ "ORDER BY id_estado, codigo, fec_creacion ", 
@@ -89,7 +104,8 @@ public class DaoProductoImpl implements DaoProducto {
 							new Cliente ((Integer)rs[6]),//CLIENTE ENVIO
 							new Cliente ((Integer)rs[7]),//CLIENTE RECEPCION
 							new Estado ((Integer)rs[8]),//Estado,
-							(Timestamp)rs[9] //FECHA CREACION
+							((Long)rs[9]).longValue() == 0 ? null : new Timestamp((Long)rs[9]), //FECHA CREACION
+							((Long)rs[10]).longValue() == 0 ? null : new Timestamp((Long)rs[10])//FECHA ENTREGADO 
 							))
 					.collect(Collectors.toList());
 			
@@ -124,7 +140,7 @@ public class DaoProductoImpl implements DaoProducto {
 				return new QueryRunner()
 						.query(connection,
 								"SELECT codigo,numero,descripcion,direccion,origen,destino,cliente_envio,"
-								+ "cliente_recepcion,id_estado, fec_creacion "
+								+ "cliente_recepcion,id_estado, fec_creacion, fec_entrega "
 								+ "FROM productos "
 								+ "WHERE CONCAT(codigo,'-',numero) IN " + sql 
 								+ "ORDER BY id_estado,codigo,fec_creacion ", 
@@ -140,7 +156,8 @@ public class DaoProductoImpl implements DaoProducto {
 								new Cliente ((Integer)rs[6]),//CLIENTE ENVIO
 								new Cliente ((Integer)rs[7]),//CLIENTE RECEPCION
 								new Estado ((Integer)rs[8]),//Estado,
-								(Timestamp)rs[9] //FECHA CREACION
+								((Long)rs[9]).longValue() == 0 ? null : new Timestamp((Long)rs[9]), //FECHA CREACION
+								((Long)rs[10]).longValue() == 0 ? null : new Timestamp((Long)rs[10])//FECHA ENTREGADO 
 								))
 						.collect(Collectors.toList());
 			}
@@ -164,7 +181,7 @@ public class DaoProductoImpl implements DaoProducto {
 			List<Producto> temp = new QueryRunner()
 					.query(connection,
 							"SELECT codigo,numero,descripcion,direccion,origen,destino,cliente_envio,"
-							+ "cliente_recepcion,id_estado, fec_creacion FROM productos "
+							+ "cliente_recepcion,id_estado, fec_creacion,fec_entrega FROM productos "
 							+ "WHERE id_estado != -1 AND codigo = ? AND numero = ? "
 							+ "ORDER BY id_estado,codigo,fec_creacion ", 
 						new ArrayListHandler(),
@@ -180,7 +197,8 @@ public class DaoProductoImpl implements DaoProducto {
 							new Cliente ((Integer)rs[6]),//CLIENTE ENVIO
 							new Cliente ((Integer)rs[7]),//CLIENTE RECEPCION
 							new Estado ((Integer)rs[8]),//Estado,
-							(Timestamp)rs[9] //FECHA CREACION
+							((Long)rs[9]).longValue() == 0 ? null : new Timestamp((Long)rs[9]), //FECHA CREACION
+							((Long)rs[10]).longValue() == 0 ? null : new Timestamp((Long)rs[10])//FECHA ENTREGADO 
 							))
 					.collect(Collectors.toList());
 			if(temp.size() == 1)
@@ -198,8 +216,8 @@ public class DaoProductoImpl implements DaoProducto {
 		try(PreparedStatement pst = connection.prepareStatement(
 				"INSERT INTO productos" + 
 				"(numero,codigo,descripcion, direccion,origen,destino,"
-				+ "cliente_envio,cliente_recepcion,id_estado) " + 
-				"SELECT ( IF(MAX(numero) IS NULL,0,MAX(numero))+1 ), ?,?,?,?,?,?,?,? " + 
+				+ "cliente_envio,cliente_recepcion,id_estado,fec_creacion,fec_entrega) " + 
+				"SELECT ( IF(MAX(numero) IS NULL,0,MAX(numero))+1 ), ?,?,?,?,?,?,?,?,?,? " + 
 				"	FROM productos WHERE codigo = ? ;")){ 
 			
 			pst.setString(1, producto.getCodigo());
@@ -212,8 +230,10 @@ public class DaoProductoImpl implements DaoProducto {
 			pst.setInt(6, producto.getEnvio().getId());
 			pst.setInt(7, producto.getRecepcion().getId());
 			pst.setInt(8, producto.getEstado().getId());
+			pst.setLong(9, Instant.now().getEpochSecond());
+			pst.setLong(10, (producto.getEstado().getId() != 3 ? 0 : Instant.now().getEpochSecond()));
 			
-			pst.setString(9,producto.getCodigo());
+			pst.setString(11,producto.getCodigo());
 			
 			pst.executeUpdate();
 
@@ -239,7 +259,7 @@ public class DaoProductoImpl implements DaoProducto {
 		try(PreparedStatement pst = connection.prepareStatement(
 				"UPDATE productos "
 				+ "SET descripcion = ?,direccion = ?,origen = ?,destino = ?,cliente_envio = ?,"
-				+ "cliente_recepcion = ?,id_estado = ? "
+				+ "cliente_recepcion = ?,id_estado = ?,fec_entrega = ? "
 				+ "WHERE codigo = ? AND numero = ?;")){
 			
 			pst.setString(1, producto.getDescripcion());
@@ -249,8 +269,9 @@ public class DaoProductoImpl implements DaoProducto {
 			pst.setInt(5, producto.getEnvio().getId());
 			pst.setInt(6, producto.getRecepcion().getId());
 			pst.setInt(7, producto.getEstado().getId());
-			pst.setString(8, producto.getCodigo());
-			pst.setInt(9,producto.getNumero());
+			pst.setLong(8, producto.getEstado().getId() != 3 ? 0 : Instant.now().getEpochSecond());
+			pst.setString(9, producto.getCodigo());
+			pst.setInt(10,producto.getNumero());
 			
 			return pst.executeUpdate();
 		}

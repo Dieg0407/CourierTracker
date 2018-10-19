@@ -8,7 +8,7 @@ public class Producto {
 	public Producto() {}
 	
 	public Producto(String codigo ,int numero,  String descripcion, String direccion, String origen, String destino, Cliente envio,
-			Cliente recepcion, Estado estado,Timestamp fechaCreacion) {
+			Cliente recepcion, Estado estado,Timestamp fechaCreacion,Timestamp fechaEntregado) {
 		super();
 		this.numero = numero;
 		this.codigo = codigo;
@@ -21,6 +21,7 @@ public class Producto {
 		this.recepcion = recepcion;
 		this.estado = estado;
 		this.fechaCreacion = fechaCreacion;
+		this.fechaEntregado = fechaEntregado;
 	}
 	
 
@@ -38,7 +39,8 @@ public class Producto {
 	private Estado estado;
 	
 	private Timestamp fechaCreacion;
-
+	private Timestamp fechaEntregado;
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -118,6 +120,14 @@ public class Producto {
 
 	public void setFechaCreacion(Timestamp fecha_creacion) {
 		this.fechaCreacion = fecha_creacion;
+	}
+
+	public Timestamp getFechaEntregado() {
+		return fechaEntregado;
+	}
+
+	public void setFechaEntregado(Timestamp fechaEntregado) {
+		this.fechaEntregado = fechaEntregado;
 	}
 	
 	
